@@ -393,7 +393,7 @@ Request::url()=='https://syslic.xyz/about-us/')
 
             <a class="mobile-none" href="{{ url('/contact-us') }}">Contact</a>
 
-            <a href="{{ $basicinfo->ecommerweb }}" class="btn" style="padding:10px 20px">Register Now</a>
+            <a href="{{ url('/contact-us') }}" class="btn" style="padding:10px 20px">Register Now</a>
         </div>
     </nav>
     <!-- overlay -->
