@@ -38,7 +38,7 @@
             </div>
             <a href="{{ route('admin.testimonials.index') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Trusted Industry</a>
             <a href="{{ route('admin.aboutlists.index') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>About Us</a>
-            <a href="{{ route('admin.aboutinfos.index') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Client Counter</a>
+            <a href="{{ route('admin.aboutinfos.index') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Destination</a>
 
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
@@ -79,14 +79,6 @@
                     <a href="{{ url('admin/testimonial-data') }}" class="dropdown-item">Testimonial Text</a>
                     <a href="{{ url('admin/web/texts') }}" class="dropdown-item">Web Texts</a>
                     <a href="{{ url('admin/web/facts') }}" class="dropdown-item">Facts Info</a>
-                </div>
-            </div>
-
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
-                        class="fa fa-th me-2"></i>Client Counter</a>
-                <div class="bg-transparent border-0 dropdown-menu">
-                    <a href="{{ route('admin.aboutinfos.index') }}" class="dropdown-item">Client Count</a>
                 </div>
             </div>
 

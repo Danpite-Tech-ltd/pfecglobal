@@ -23,11 +23,11 @@
             <div class="col-sm-12 col-md-12 col-xl-12">
                 <div class="p-4 pb-0 rounded h-100 bg-secondary">
                     <div class="d-flex align-items-center justify-content-between" style="width: 50%;float:left;">
-                        <h6 class="mb-0">Client Counter List</h6>
+                        <h6 class="mb-0">Destination List</h6>
                     </div>
                     <div class="" style="width: 50%;float:left;">
-                        {{-- <a type="button" data-bs-toggle="modal" data-bs-target="#mainAboutinfo"
-                            class="m-2 btn btn-primary" style="float: right"> + Create Aboutinfo</a> --}}
+                        <a type="button" data-bs-toggle="modal" data-bs-target="#mainAboutinfo" class="m-2 btn btn-primary"
+                            style="float: right"> + Create Destination</a>
                     </div>
                 </div>
             </div>
@@ -40,7 +40,6 @@
                                 <tr>
                                     <th>SL</th>
                                     <th>Title</th>
-                                    <th>Counter Text</th>
                                     <th>status</th>
                                     <th>Action</th>
                                 </tr>
@@ -58,7 +57,7 @@
                 <div class="modal-dialog">
                     <div class="rounded modal-content bg-secondary h-100">
                         <div class="modal-header">
-                            <h5 class="modal-title" style="color: red;">Create New Aboutinfo</h5>
+                            <h5 class="modal-title" style="color: red;">Create New Destination</h5>
                             <button type="button" class="btn-dark btn-close" data-bs-dismiss="modal"
                                 aria-label="Close"></button>
                         </div>
@@ -72,17 +71,19 @@
                                     <label for="floatingInput">Title</label>
                                 </div>
 
-                                <div class="mb-3 form-floating">
-                                    <textarea class="form-control" placeholder="Text" name="about_text" id="about_text"
-                                        style="height: 80px;"></textarea>
-                                    <label for="floatingTextarea">Text</label>
+                                <div class="mb-3">
+                                    <label class="form-label">Description</label>
+                                    <textarea class="form-control" name="about_text" id="about_text_add"></textarea>
                                 </div>
 
-                                <div class="mt-4 mb-4 d-none">
+
+                                <div class="mt-4 mb-4">
+                                    <label for="about_image" class="form-label">Image</label>
                                     <input class="form-control form-control-lg bg-dark" name="about_image" id="about_image"
                                         type="file">
                                 </div>
-                                <div class="mt-4 mb-4 d-none">
+                                <div class="mt-4 mb-4">
+                                    <label for="about_icon" class="form-label">Banner Image</label>
                                     <input class="form-control form-control-lg bg-dark" name="about_icon" id="about_icon"
                                         type="file">
                                 </div>
@@ -108,7 +109,7 @@
                 <div class="modal-dialog">
                     <div class="rounded modal-content bg-secondary h-100">
                         <div class="modal-header">
-                            <h5 class="modal-title" style="color: red;">Edit Counter</h5>
+                            <h5 class="modal-title" style="color: red;">Edit Desrination</h5>
                             <button type="button" class="btn-dark btn-close" data-bs-dismiss="modal"
                                 aria-label="Close"></button>
                         </div>
@@ -119,34 +120,34 @@
                                 <div class="mb-3 form-floating">
                                     <input type="text" class="form-control" name="about_title" id="about_title"
                                         placeholder="Title" required>
-                                    <label for="floatingInput">Text</label>
+                                    <label for="floatingInput">Title</label>
                                 </div>
-                                <div class="mb-3 form-floating">
-                                    <textarea class="form-control" placeholder="Text" name="about_text" id="about_text"
-                                        style="height: 80px;"></textarea>
-                                    <label for="floatingTextarea">Counter</label>
+                                <div class="mb-3">
+                                    <label class="form-label">Description</label>
+                                    <textarea class="form-control" name="about_text" id="about_text_edit"></textarea>
                                 </div>
-                                <div class="mt-4 mb-4 d-none">
+
+                                <div class="mt-4 mb-4">
                                     <input class="form-control form-control-lg bg-dark" name="about_image" id="about_image"
                                         type="file">
                                 </div>
                                 <input type="text" name="about_id" id="about_id" hidden>
 
-                                <div class="m-3 mb-0 ms-0 d-none"
+                                <div class="m-3 mb-0 ms-0"
                                     style="text-align: center;height: 100px;margin-top:20px !important">
                                     <h4 style="width:30%;float: left;text-align: left;">Image : </h4>
                                     <div id="previmg" style="float: left;"></div>
                                 </div>
                                 <br>
 
-                                <div class="mt-4 mb-4 d-none">
+                                <div class="mt-4 mb-4">
                                     <input class="form-control form-control-lg bg-dark" name="about_icon" id="about_icon"
                                         type="file">
                                 </div>
 
-                                <div class="m-3 mb-0 ms-0 d-none"
+                                <div class="m-3 mb-0 ms-0"
                                     style="text-align: center;height: 100px;margin-top:20px !important">
-                                    <h4 style="width:30%;float: left;text-align: left;">Icon : </h4>
+                                    <h4 style="width:30%;float: left;text-align: left;">Banner Image : </h4>
                                     <div id="prevaboutimg" style="float: left;"></div>
                                 </div>
                                 <br>
@@ -168,6 +169,23 @@
             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
         </div>
     </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#about_text_add, #about_text_edit').summernote({
+                placeholder: 'Write description...',
+                height: 150,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'underline', 'clear']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['insert', ['link']],
+                    ['view', ['codeview']]
+                ]
+            });
+        });
+    </script>
 
     <script>
         $(document).ready(function () {
@@ -199,9 +217,6 @@
                 // },
                 {
                     data: 'about_title'
-                },
-                {
-                    data: 'about_text'
                 },
                 {
                     "data": null,
@@ -253,7 +268,7 @@
                         } else {
                             $('#about_small_title').val('');
                             $('#about_title').val('');
-                            $('#about_text').val('');
+                            $('#about_text_add').summernote('code', '');
                             $('#about_image').val('');
                             $('#about_icon').val('');
 
@@ -283,18 +298,18 @@
                         $('#EditAboutinfo').find('#about_small_title').val(data
                             .about_small_title);
                         $('#EditAboutinfo').find('#about_title').val(data.about_title);
-                        $('#EditAboutinfo').find('#about_text').val(data.about_text);
+                        $('#EditAboutinfo').find('#about_text_edit').summernote('code', data.about_text);
                         $('#EditAboutinfo').find('#about_id').val(data.id);
 
                         $('#previmg').html('');
                         $('#previmg').append(`
-                            <img  src="../` + data.about_image + `" alt = "" style="height: 80px" />
-                        `);
+                                    <img  src="../` + data.about_image + `" alt = "" style="height: 80px" />
+                                `);
 
                         $('#prevaboutimg').html('');
                         $('#prevaboutimg').append(`
-                            <img  src="../` + data.about_icon + `" alt = "" style="height: 80px" />
-                        `);
+                                    <img  src="../` + data.about_icon + `" alt = "" style="height: 80px" />
+                                `);
 
                         $('#EditAboutinfo').attr('data-id', data.id);
                     },
@@ -329,7 +344,7 @@
                         } else {
                             $('#EditAboutinfo').find('#about_small_title').val('');
                             $('#EditAboutinfo').find('#about_title').val('');
-                            $('#EditAboutinfo').find('#about_text').val('');
+                            $('#EditAboutinfo').find('#about_text_edit').summernote('code', '');
                             $('#EditAboutinfo').find('#about_image').val('');
                             $('#EditAboutinfo').find('#about_icon').val('');
                             $('#previmg').html('');
