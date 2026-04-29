@@ -368,11 +368,7 @@ Request::url()=='https://syslic.xyz/about-us/')
                 </a>
 
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item " href="#">Study In Australia</a></li>
-                    <li><a class="dropdown-item " href="#">Study In UK</a></li>
-                    <li><a class="dropdown-item" href="#">Study In USA</a></li>
-                    <li><a class="dropdown-item" href="#">Study In Nepal</a></li>
-                    <li><a class="dropdown-item" href="#">Study In Korea</a></li>
+                    <li><a class="dropdown-item " href="{{ url('blogs') }}">Blog</a></li>
                 </ul>
             </div>
             <!-- Scolarships -->

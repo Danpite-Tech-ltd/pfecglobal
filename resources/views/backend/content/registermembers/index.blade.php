@@ -7,7 +7,7 @@
     <div class="mt-4 container-fluid">
         <div class="border-0 shadow-sm card">
             <div class="py-2 text-white card-header" style="background: blue;">
-                <h5 class="mb-0 text-white">Contact List</h5>
+                <h5 class="mb-0 text-white">Register Member Lists</h5>
             </div>
 
             <div class="p-0 card-body">
