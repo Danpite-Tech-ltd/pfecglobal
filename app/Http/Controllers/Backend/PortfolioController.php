@@ -45,8 +45,8 @@ class PortfolioController extends Controller
     {
 
         $blog = new Portfolio();
-        $blog->category_id = $request->category_id;
-        $blog->subcategory_id = $request->subcategory_id;
+        $blog->author = $request->author;
+        $blog->study_title = $request->study_title;
         $blog->title = $request->title;
         $blog->slug = Str::slug($request->title);
         $blog->short_description = $request->short_description;
@@ -98,7 +98,7 @@ class PortfolioController extends Controller
         $portfolio = Portfolio::with(['portfoliocategories'])->where('id', $id)->where('status', 'Active')->first();
         return view('webview.content.portfoliodetails', ['portfolio' => $portfolio]);
     }
-    
+
     public function getSubcategory($category_id)
     {
         $subcategories = Portfoliosubcategory::where('category_id', $category_id)->get();
@@ -131,8 +131,8 @@ class PortfolioController extends Controller
     {
         $blog = Portfolio::findOrFail($id);
 
-        $blog->category_id = $request->category_id;
-        $blog->subcategory_id = $request->subcategory_id;
+        $blog->author = $request->author;
+        $blog->study_title = $request->study_title;
         $blog->title = $request->title;
         $blog->slug = Str::slug($request->title);
         $blog->short_description = $request->short_description;
