@@ -78,12 +78,13 @@
                                 <label for="floatingInput">Title</label>
                             </div>
 
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" name="facebook" id="facebook"
-                                    placeholder="Facebook">
-                                <label for="floatingInput">Address</label>
+                           <div class="form-floating mb-3">
+                                <textarea class="form-control" name="facebook" id="facebook"
+                                    placeholder="Facebook" style="height: 100px"></textarea>
+                                <label for="facebook">Description</label>
                             </div>
-                            <div class="form-floating mb-3">
+
+                            <!-- <div class="form-floating mb-3">
                                 <input type="text" class="form-control" name="tweitter" id="tweitter"
                                     placeholder="Tweitter">
                                 <label for="floatingInput">Phone</label>
@@ -111,7 +112,7 @@
                                     <option value="staff">Staff</option>
                                 </select>
                                 <label for="soc">Badge</label>
-                            </div>
+                            </div> -->
 
 
                             <div class="mt-4 mb-4">
@@ -158,11 +159,11 @@
                                 <label for="floatingInput">Title</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" name="facebook" id="facebook"
-                                    placeholder="Facebook">
-                                <label for="floatingInput">Address</label>
+                                <textarea class="form-control" name="facebook" id="facebook"
+                                    placeholder="Facebook" style="height: 100px"></textarea>
+                                <label for="facebook">Description</label>
                             </div>
-                            <div class="form-floating mb-3">
+                            <!-- <div class="form-floating mb-3">
                                 <input type="text" class="form-control" name="tweitter" id="tweitter"
                                     placeholder="Tweitter">
                                 <label for="floatingInput">Phone</label>
@@ -189,7 +190,7 @@
                                     <option value="staff">Staff</option>
                                 </select>
                                 <label for="soc">Badge</label>
-                            </div>
+                            </div> -->
                             <div class="mt-4 mb-4">
                                 <input class="form-control form-control-lg bg-dark" name="image" id="image"
                                     type="file">

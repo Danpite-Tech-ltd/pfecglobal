@@ -12,12 +12,29 @@ use App\Models\Portfolio;
 use App\Models\Portfoliocategory;
 use App\Models\Service;
 use App\Models\Team;
+use App\Models\Aboutinfo;
 use App\Models\Factory;
 use App\Models\Portfoliosubcategory;
 use App\Models\Testimonial;
 
 class ListdetailController extends Controller
 {
+
+    public function destination($id)
+    {
+        $destination = Aboutinfo::where('id', $id)->first();
+        return view('webview.content.destination', ['destination' => $destination]);
+    }
+    public function resources($id)
+    {
+        $resources = Service::where('id', $id)->first();
+        return view('webview.content.resources', ['resources' => $resources]);
+    }
+    public function team()
+    {
+        $team = Team::where('status', 'Active')->get();
+        return view('webview.content.team', ['team' => $team]);
+    }
     public function lifearcadex()
     {
         return view('webview.lifearx');

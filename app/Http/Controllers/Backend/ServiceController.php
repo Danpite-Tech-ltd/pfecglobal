@@ -35,6 +35,7 @@ class ServiceController extends Controller
         $service->service_title = $request->service_title;
         $service->service_text = $request->service_text;
         $service->link = $request->link;
+        $service->subtitle = $request->subtitle;
         $serviceimage = $request->file('service_image');
         $name = time() . "_" . $serviceimage->getClientOriginalName();
         $uploadPath = ('public/images/service/');
@@ -84,6 +85,7 @@ class ServiceController extends Controller
         // }
         $service->service_title = $request->service_title;
         $service->link = $request->link;
+        $service->subtitle = $request->subtitle;
         $service->service_text = $request->service_text;
         if ($request->service_image) {
             unlink($service->service_image);

@@ -19,6 +19,11 @@ use App\Http\Controllers\FrontendController;
 Route::get('/', function () {
     return view('webview.content.maincontent');
 });
+Route::get('destination/{id}', [ListdetailController::class, 'destination']);
+Route::get('services/{id}', [ListdetailController::class, 'resources']);
+Route::get('team', [ListdetailController::class, 'team']);
+
+
 
 Route::get('services', [ListdetailController::class, 'services']);
 Route::get('about-us', [ListdetailController::class, 'aboutus']);

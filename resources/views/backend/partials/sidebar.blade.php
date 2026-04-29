@@ -68,9 +68,9 @@
 
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
-                        class="fa fa-th me-2"></i>Certificate</a>
+                        class="fa fa-th me-2"></i>Resources</a>
                 <div class="bg-transparent border-0 dropdown-menu">
-                    <a href="{{ route('admin.services.index') }}" class="dropdown-item">Certificate</a>
+                    <a href="{{ route('admin.services.index') }}" class="dropdown-item">Resources</a>
                 </div>
             </div>
 
