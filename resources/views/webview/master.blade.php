@@ -34,8 +34,8 @@
 
 
     <!-- WIDGETS -->
-    <a href="https://wa.me/88{{ $basicinfo->phone_one }}" target="_blank" class="whatsapp-btn"><i class="fab fa-whatsapp"></i></a>
-    <a href="https://wa.me/88{{ $basicinfo->phone_one }}" class="chat-btn"><i class="fas fa-comments"></i></a>
+    <!-- <a href="https://wa.me/88{{ $basicinfo->phone_one }}" target="_blank" class="whatsapp-btn"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://wa.me/88{{ $basicinfo->phone_one }}" class="chat-btn"><i class="fas fa-comments"></i></a> -->
     <a href="" class="top-btn"><i class="fas fa-arrow-up"></i></a>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>

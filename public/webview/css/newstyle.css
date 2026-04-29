@@ -640,7 +640,7 @@ footer {
 .top-btn {
     position: fixed;
     bottom: 30px;
-    right: 100px;
+    right: 24px;
     background: var(--navy);
     color: white;
     width: 50px;

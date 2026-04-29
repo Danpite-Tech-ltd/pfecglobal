@@ -328,8 +328,9 @@ Request::url()=='https://syslic.xyz/about-us/')
 
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item " href="{{ url('/team') }}">Our Leadership Team</a></li>
-                    <li><a class="dropdown-item " href="{{ url('awards-and-accolades') }}">Awards and Achievements</a></li>
-                    <li><a class="dropdown-item" href="#">Testimonials</a></li>
+                    <li><a class="dropdown-item " href="{{ url('awards-and-accolades') }}">Awards and Achievements</a>
+                    </li>
+                    <!-- <li><a class="dropdown-item" href="#">Testimonials</a></li> -->
                 </ul>
             </div>
             <!-- Destination -->
@@ -340,7 +341,8 @@ Request::url()=='https://syslic.xyz/about-us/')
 
                 <ul class="dropdown-menu">
                     @foreach ($destination as $dest)
-                        <li><a class="dropdown-item " href="{{ url('/destination', $dest->id) }}">{{ $dest->about_title }}</a></li>
+                        <li><a class="dropdown-item "
+                                href="{{ url('/destination', $dest->id) }}">{{ $dest->about_title }}</a></li>
                     @endforeach
                 </ul>
             </div>
@@ -353,7 +355,8 @@ Request::url()=='https://syslic.xyz/about-us/')
 
                 <ul class="dropdown-menu">
                     @foreach ($resources as $res)
-                    <li><a class="dropdown-item " href="{{ url('services', $res->id) }}">{{ $res->service_title }}</a></li>
+                        <li><a class="dropdown-item " href="{{ url('services', $res->id) }}">{{ $res->service_title }}</a>
+                        </li>
                     @endforeach
                 </ul>
             </div>
@@ -404,37 +407,84 @@ Request::url()=='https://syslic.xyz/about-us/')
 
         <ul class="sidebar-list">
             <li><a href="{{ url('/') }}">Home</a></li>
-            @foreach ($categories as $category)
-                <li class="category-item">
+            <li class="category-item">
 
-                    <div class="category-title">
-                        <a href="{{ url('product/category/' . $category->slug) }}">
-                            {{ $category->category_name }}
-                        </a>
+                <div class="category-title">
+                    <a href="javascript:void(0)" class="category-toggle">
+                        About Us
+                    </a>
+                    <span class="toggle-btn">+</span>
+                </div>
 
-                        @if($category->subcategories->count() > 0)
-                            <span class="toggle-btn">+</span>
-                        @endif
-                    </div>
+                <ul class="subcategory-list" style="padding-left:10px;">
+                    <li><a href="{{ url('/team') }}">Our Leadership Team</a></li>
+                    <li><a href="{{ url('awards-and-accolades') }}">Awards and Achievements</a></li>
+                </ul>
 
-                    @if($category->subcategories->count() > 0)
-                        <ul class="subcategory-list">
-                            @foreach ($category->subcategories as $sub)
-                                <li>
-                                    <a href="{{ url('product/subcategory/' . $category->slug . '/' . $sub->slug) }}">
-                                        {{ $sub->subcategory_name }}
-                                    </a>
-                                </li>
-                            @endforeach
-                        </ul>
-                    @endif
+            </li>
+            <li class="category-item">
 
-                </li>
-            @endforeach
-            <li><a href="{{ url('factory') }}">Factory</a></li>
+                <div class="category-title">
+                    <a href="javascript:void(0)" class="category-toggle">
+                        Destination
+                    </a>
+                    <span class="toggle-btn">+</span>
+                </div>
+
+                <ul class="subcategory-list" style="padding-left:10px;">
+                    @foreach ($destination as $dest)
+                        <li><a href="{{ url('/destination', $dest->id) }}">{{ $dest->about_title }}</a></li>
+                    @endforeach
+                </ul>
+
+            </li>
+            <li class="category-item">
+
+                <div class="category-title">
+                    <a href="javascript:void(0)" class="category-toggle">
+                        Our Services
+                    </a>
+                    <span class="toggle-btn">+</span>
+                </div>
+
+                <ul class="subcategory-list" style="padding-left:10px;">
+                    @foreach ($resources as $res)
+                        <li><a href="{{ url('services', $res->id) }}">{{ $res->service_title }}</a></li>
+                    @endforeach
+                </ul>
+
+            </li>
+            <li class="category-item">
+
+                <div class="category-title">
+                    <a href="javascript:void(0)" class="category-toggle">
+                        Resources
+                    </a>
+                    <span class="toggle-btn">+</span>
+                </div>
+
+                <ul class="subcategory-list" style="padding-left:10px;">
+                    <li><a href="{{ url('blogs') }}">Blog</a></li>
+                </ul>
+
+            </li>
+            <li class="category-item">
+
+                <div class="category-title">
+                    <a href="javascript:void(0)" class="category-toggle">
+                        Scholarships
+                    </a>
+                    <span class="toggle-btn">+</span>
+                </div>
+
+                <ul class="subcategory-list" style="padding-left:10px;">
+                    @foreach ($scolarships as $scolarship)
+                        <li><a href="{{ url('scholarship') }}/{{ $scolarship->slug }}">{{ $scolarship->title }}</a></li>
+                    @endforeach
+                </ul>
+
+            </li>
             <li><a href="{{ url('contact-us') }}">Contact</a></li>
-            <li><a href="{{ url('products') }}">Products</a></li>
-            <li><a href="{{ url('blacklist') }}">Blacklist</a></li>
         </ul>
 
     </div>
@@ -465,17 +515,25 @@ Request::url()=='https://syslic.xyz/about-us/')
                 toggleSidebar(false);
             });
 
-            document.querySelectorAll(".toggle-btn").forEach(btn => {
-                btn.addEventListener("click", function () {
-                    let subMenu = this.closest(".category-item").querySelector(".subcategory-list");
-                    if (subMenu.style.display === "block") {
-                        subMenu.style.display = "none";
-                        this.innerHTML = "+";
-                    } else {
-                        subMenu.style.display = "block";
-                        this.innerHTML = "-";
+            document.querySelectorAll(".category-item").forEach(item => {
+                const title = item.querySelector(".category-title");
+                const toggleBtn = item.querySelector(".toggle-btn");
+                const subMenu = item.querySelector(".subcategory-list");
+
+                if (!title || !subMenu) {
+                    return;
+                }
+
+                const toggleSubMenu = (event) => {
+                    event.preventDefault();
+                    const isOpen = subMenu.style.display === "block";
+                    subMenu.style.display = isOpen ? "none" : "block";
+                    if (toggleBtn) {
+                        toggleBtn.innerHTML = isOpen ? "+" : "-";
                     }
-                });
+                };
+
+                title.addEventListener("click", toggleSubMenu);
             });
 
         });
