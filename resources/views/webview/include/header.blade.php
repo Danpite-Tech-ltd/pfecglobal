@@ -333,14 +333,13 @@ Request::url()=='https://syslic.xyz/about-us/')
             </div>
             <!-- Destination -->
             <div class="nav-links dropdown">
-                <a href="{{ url('/') }}" class="dropdown-toggle" data-bs-toggle="dropdown">
+                <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown">
                     Destination
-                    <!-- <i class="fa fa-chevron-down"></i> -->
                 </a>
 
                 <ul class="dropdown-menu">
                     @foreach ($destination as $dest)
-                        <li><a class="dropdown-item " href="">{{ $dest->about_title }}</a></li>
+                        <li><a class="dropdown-item " href="{{ url('/destination', $dest->id) }}">{{ $dest->about_title }}</a></li>
                     @endforeach
                 </ul>
             </div>

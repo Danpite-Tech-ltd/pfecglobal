@@ -12,11 +12,18 @@ use App\Models\Portfolio;
 use App\Models\Portfoliocategory;
 use App\Models\Service;
 use App\Models\Team;
+use App\Models\Aboutinfo;
 use App\Models\Factory;
 
 
 class ListdetailController extends Controller
 {
+
+    public function destination($id)
+    {
+        $destination = Aboutinfo::where('id', $id)->first();
+        return view('webview.content.destination', ['destination' => $destination]);
+    }
     public function lifearcadex()
     {
         return view('webview.lifearx');
