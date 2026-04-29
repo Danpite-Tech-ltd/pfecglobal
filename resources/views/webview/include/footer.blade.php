@@ -1,102 +1,152 @@
-{{-- <div class="pt-5 container-fluid bg-dark text-white-50 footer">
-    <div class="container py-5">
-        <div class="row g-5">
-            <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
-                <a href="#" class="mb-3 d-inline-block">
-                    <img src="{{ asset($basicinfo->logo) }}" style="width: 180px;">
-                </a>
-                <p class="mb-0">{{$basicinfo->footer_text_logo}}</p>
-            </div>
-            <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
-                <h5 class="mb-4 text-white">Get In Touch</h5>
-                <p><i class="fa fa-map-marker-alt me-3"></i>{!! $basicinfo->address !!}</p>
-                <p><i class="fa fa-phone-alt me-3"></i>{{ $basicinfo->phone_one }}</p>
-                <p><i class="fa fa-envelope me-3"></i>{{ $basicinfo->email }}</p>
-                <div class="pt-2 d-flex">
-                    <a class="btn btn-outline-light btn-social" target="_blank" href="{{ $basicinfo->twitter }}"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-outline-light btn-social" target="_blank" href="{{ $basicinfo->facebook }}"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-outline-light btn-social" target="_blank" href="{{ $basicinfo->youtube }}"><i class="fab fa-youtube"></i></a>
-                    <a class="btn btn-outline-light btn-social" target="_blank" href="{{ $basicinfo->instagram }}"><i class="fab fa-instagram"></i></a>
-                    <a class="btn btn-outline-light btn-social" target="_blank" href="{{ $basicinfo->linkedin }}"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                <h5 class="mb-4 text-white">Link</h5>
-                <a class="btn btn-link" href="{{url('about-us')}}">About Us</a>
-                <a class="btn btn-link" href="{{url('contact-us')}}">Contact Us</a>
-                @php
-                    $pages=App\Models\Client::where('type','footer')->where('status','Active')->get();
-                    $services=App\Models\Service::where('status','Active')->get();
-                @endphp
-                @forelse($pages as $page)
-                    <a href="{{ url('page',$page->slug) }}" class="btn btn-link">{{$page->page_name}}</a>
-                @empty
-                @endforelse
-            </div>
-            <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
-                <h5 class="mb-4 text-white">Our Services</h5>
-                @forelse($services as $service)
-                <a class="btn btn-link" href="{{$service->link}}">{{$service->service_title}}</a>
-                @empty
-                @endforelse
-            </div>
-        </div>
-    </div>
-    <div class="container wow fadeIn" data-wow-delay="0.1s">
-        <div class="copyright">
-            <div class="row">
-                <div class="mb-3 text-center col-md-12 text-md-start mb-md-0" style="text-align: center !important;">
-                    &copy; <a class="border-bottom" href="{{ url('/') }}">Syslic</a>, All Right Reserved. Designed By <a class="border-bottom" href="{{ url('/') }}">Syslic</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> --}}
 
+<style>
+    .main-footer {
+        background-color: #f8f9fa;
+        padding: 60px 0 20px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #444;
+    }
 
+    .footer-logo { max-width: 150px; margin-bottom: 20px; }
+    .footer-desc { font-size: 14px; line-height: 1.6; margin-bottom: 25px; max-width: 250px; }
 
-<footer>
-        <div class="container footer-top">
-            <div class="footer-col">
-                <div class="logo" style="color: white; margin-bottom: 20px;">
-                    <img src="{{ asset($basicinfo->logo) }}" alt="">
-                </div>
-                <p style="line-height: 1.8; margin-bottom: 20px;">
-                    {{$basicinfo->footer_text_logo}}
-                </p>
-                <div class="social-links">
-                    <a href="{{ $basicinfo->facebook }}"><i class="fab fa-facebook-f"></i></a>
-                    <a href="{{ $basicinfo->twitter }}"><i class="fab fa-twitter"></i></a>
-                    <a href="{{ $basicinfo->linkedin }}"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="{{ $basicinfo->instagram }}"><i class="fab fa-instagram"></i></a>
+    .social-icons a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 4px;
+        margin-right: 8px;
+        color: #fff;
+        text-decoration: none;
+        font-size: 16px;
+    }
+    .si-fb { background-color: #3b5998; }
+    .si-ig { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+    .si-in { background-color: #0077b5; }
+    .si-yt { background-color: #ff0000; }
+
+    .footer-title {
+        color: #ff6b6b;
+        font-weight: 700;
+        font-size: 17px;
+        margin-bottom: 20px;
+    }
+
+    .footer-links { list-style: none; padding: 0; }
+    .footer-links li { margin-bottom: 8px; }
+    .footer-links li a {
+        color: #555;
+        text-decoration: none;
+        font-size: 14px;
+        transition: 0.3s;
+    }
+    .footer-links li a:hover { color: #ff6b6b; padding-left: 5px; }
+
+    /* Office Section */
+    .office-section {
+        border-top: 1px solid #ddd;
+        padding: 40px 0;
+        margin-top: 40px;
+    }
+    .office-main-title {
+        color: #ff6b6b;
+        text-align: center;
+        font-weight: 700;
+        margin-bottom: 40px;
+        font-size: 22px;
+    }
+    .office-box h5 { color: #ff6b6b; font-weight: 700; font-size: 16px; margin-bottom: 15px; }
+    .office-info { font-size: 13px; line-height: 1.6; margin-bottom: 10px; position: relative; padding-left: 20px; }
+    .office-info i { position: absolute; left: 0; top: 4px; color: #ff6b6b; }
+    .office-box a { color: #ff6b6b; font-size: 13px; text-decoration: none; font-weight: 500; }
+
+    /* Bottom Copyright */
+    .footer-bottom {
+        border-top: 1px solid #ddd;
+        padding-top: 20px;
+        text-align: center;
+        font-size: 14px;
+        color: #666;
+    }
+    .footer-bottom a { color: #666; text-decoration: none; margin: 0 5px; }
+
+    @media (max-width: 768px) {
+        .footer-desc { max-width: 100%; }
+        .office-box { margin-bottom: 30px; text-align: center; }
+        .office-info { padding-left: 0; }
+        .office-info i { position: static; margin-right: 5px; }
+    }
+</style>
+
+<footer class="main-footer">
+    <div class="container">
+        <!-- Top Links Section -->
+        <div class="row">
+            <div class="mb-4 col-12 col-md-3">
+                <img src="{{ asset($basicinfo->logo) }}" alt="PFEC" class="footer-logo">
+                <p class="footer-desc">Since 2006, {{ env('APP_NAME') }} has been guiding students toward a better life abroad through expert higher education consultancy and end-to-end support.</p>
+                <div class="social-icons">
+                    <a href="{{ $basicinfo->facebook }}" class="si-fb"><i class="fab fa-facebook-f"></i></a>
+                    <a href="{{ $basicinfo->rss }}" class="si-ig"><i class="fab fa-instagram"></i></a>
+                    <a href="{{ $basicinfo->linkedin }}" class="si-in"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="{{ $basicinfo->youtube }}" class="si-yt"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
-            <div class="footer-col">
-                <h4>Garment Items</h4>
-                <ul>
-                    <li><a href="#garments">Woven Labels</a></li>
-                    <li><a href="#garments">Hang Tags</a></li>
-                    <li><a href="#garments">Heat Transfer</a></li>
-                    <li><a href="#garments">Metal Buttons</a></li>
+            @php
+                $scholarships = App\Models\Portfoliosubcategory::get();
+                $destinations = App\Models\Aboutinfo::get();
+            @endphp
+
+            <div class="mb-4 col-6 col-md-3">
+                <h4 class="mt-4 footer-title">Scholarships</h4>
+                <ul class="footer-links">
+                    @foreach ($scholarships as $value)
+                    <li><a href="{{ url('scholarship') }}/{{ $value->slug }}">{{ $value->title }}</a></li>
+                    @endforeach
                 </ul>
             </div>
-            <div class="footer-col">
-                <h4>Thermal Items</h4>
-                <ul>
-                    <li><a href="#thermal">Thermal Stickers</a></li>
-                    <li><a href="#thermal">RFID Tags</a></li>
-                    <li><a href="#thermal">Barcode Ribbons</a></li>
-                    <li><a href="#thermal">Price Labels</a></li>
+
+            <div class="mb-4 col-6 col-md-3">
+                <h4 class="footer-title">Study Destinations</h4>
+                <ul class="footer-links">
+                    @foreach ($destinations as $destination)
+                        <li><a href="{{ url('destination') }}/{{ $destination->id }}">{{ $destination->about_title }}</a></li>
+                    @endforeach
+                </ul>
+                <h4 class="mt-2 footer-title">Resources</h4>
+                <ul class="footer-links">
+                    <li><a href="{{ url('blogs') }}">Blogs</a></li>
+                    <li><a href="#">Careers</a></li>
                 </ul>
             </div>
-            <div class="footer-col">
-                <h4>Contact Factory</h4>
-                <p style="margin-bottom: 10px;"><i class="fas fa-map-marker-alt" style="color: var(--orange);"></i>{!! $basicinfo->address !!}</p>
-                <p style="margin-bottom: 10px;"><i class="fas fa-phone-alt" style="color: var(--orange);"></i> {{ $basicinfo->phone_one }}</p>
-                <p><i class="fas fa-envelope" style="color: var(--orange);"></i> {{ $basicinfo->email }}</p>
+
+            <div class="mb-4 col-6 col-md-3">
+                <h4 class="footer-title">About {{ env('APP_NAME') }} </h4>
+                <ul class="footer-links">
+                    <li><a href="{{ url('team') }}">Our Leadership</a></li>
+                    <li><a href="{{ url('awards-and-accolades') }}">Awards & Achievements</a></li>
+                    <li><a href="{{ url('contact-us') }}">Contact Us</a></li>
+                </ul>
             </div>
         </div>
+
+        <!-- Office Details Section -->
+        <div class="office-section">
+            <h3 class="office-main-title">{{ env('APP_NAME') }} Offices in Bangladesh</h3>
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-3 office-box">
+                    <h5>Location</h5>
+                    <p class="office-info"><i class="fas fa-map-marker-alt"></i> {{ $basicinfo->address }}</p>
+                    <p class="office-info"><i class="fas fa-phone-alt"></i> {{ $basicinfo->phone_one }}</p>
+                    {{-- <a href="#">Learn More >></a> --}}
+                </div>
+            </div>
+        </div>
+
         <div class="footer-bottom">
-            <div class="container"><p>&copy; 2026 JM International. All Rights Reserved.</p></div>
+            <p>Copyright © 2026 PFEC. | Developed by <a href="#">Danpite Tech</a></p>
         </div>
-    </footer>
+    </div>
+</footer>
