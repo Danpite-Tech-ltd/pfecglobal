@@ -48,6 +48,14 @@
                 </div>
             </div>
 
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
+                        class="fa fa-th me-2"></i>Scolarships</a>
+                <div class="bg-transparent border-0 dropdown-menu">
+                    <a href="{{ route('admin.portfoliosubcategories.index') }}" class="dropdown-item">Scolarship</a>
+                </div>
+            </div>
+
             <a href="{{ url('admin/chooseus-data') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Choose Us</a>
             <a href="{{ url('admin/faqs') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Faq's</a>
 

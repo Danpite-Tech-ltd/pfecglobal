@@ -31,16 +31,10 @@ class PortfoliosubcategoryController extends Controller
      */
     public function store(Request $request)
     {
-        if (empty($request->category_id)) {
-            return response()->json('error', 200);
-        }
         $portfoliosubcategory = new Portfoliosubcategory();
-        $portfoliosubcategory->category_id = $request->category_id;
-        $portfoliosubcategory->subcategory_name = $request->subcategory_name;
-        $portfoliosubcategory->slug = Str::slug($request->subcategory_name);
         $portfoliosubcategory->title = $request->title;
-        $portfoliosubcategory->subtitle = $request->subtitle;
         $portfoliosubcategory->details = $request->details;
+        $portfoliosubcategory->slug = Str::slug($request->title);
         $portfoliosubcategory->status = 'Active';
 
         if ($request->file('image')) {
@@ -80,22 +74,12 @@ class PortfoliosubcategoryController extends Controller
         return response()->json($portfoliosubcategory, 200);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Portfoliosubcategory  $portfoliosubcategory
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $portfoliosubcategory = Portfoliosubcategory::findOrfail($id);
 
-        $portfoliosubcategory->category_id = $request->category_id;
-        $portfoliosubcategory->subcategory_name = $request->subcategory_name;
-        $portfoliosubcategory->slug = Str::slug($request->subcategory_name);
         $portfoliosubcategory->title = $request->title;
-        $portfoliosubcategory->subtitle = $request->subtitle;
+        $portfoliosubcategory->slug = Str::slug($request->title);
         $portfoliosubcategory->details = $request->details;
          if ($request->file('image')) {
             $image = $request->file('image');
