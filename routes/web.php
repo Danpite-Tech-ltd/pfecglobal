@@ -21,6 +21,7 @@ Route::get('/', function () {
 });
 Route::get('destination/{id}', [ListdetailController::class, 'destination']);
 Route::get('services/{id}', [ListdetailController::class, 'resources']);
+Route::get('team', [ListdetailController::class, 'team']);
 
 
 

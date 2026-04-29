@@ -29,6 +29,11 @@ class ListdetailController extends Controller
         $resources = Service::where('id', $id)->first();
         return view('webview.content.resources', ['resources' => $resources]);
     }
+    public function team()
+    {
+        $team = Team::where('status', 'Active')->get();
+        return view('webview.content.team', ['team' => $team]);
+    }
     public function lifearcadex()
     {
         return view('webview.lifearx');
