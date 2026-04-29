@@ -2,7 +2,7 @@
 
 @section('maincontent')
 @section('title')
-    {{ env('APP_NAME') }}- Testimonial
+    {{ env('APP_NAME') }}- Award Gallery
 @endsection
 <style>
     div#roleinfo_length {
@@ -23,11 +23,11 @@
         <div class="col-sm-12 col-md-12 col-xl-12">
             <div class="p-4 pb-0 rounded h-100 bg-secondary">
                 <div class="d-flex align-items-center justify-content-between" style="width: 50%;float:left;">
-                    <h6 class="mb-0">Testimonial List</h6>
+                    <h6 class="mb-0">Award Gallery List</h6>
                 </div>
                 <div class="" style="width: 50%;float:left;">
                     <a type="button" data-bs-toggle="modal" data-bs-target="#mainTestimonial"
-                        class="m-2 btn btn-primary" style="float: right"> + Create Testimonial</a>
+                        class="m-2 btn btn-primary" style="float: right"> + Create Award Gallery</a>
                 </div>
             </div>
         </div>
@@ -58,7 +58,7 @@
             <div class="modal-dialog">
                 <div class="rounded modal-content bg-secondary h-100">
                     <div class="modal-header">
-                        <h5 class="modal-title" style="color: red;">Create New Testimonial</h5>
+                        <h5 class="modal-title" style="color: red;">Create New Award Gallery</h5>
                         <button type="button" class="btn-dark btn-close" data-bs-dismiss="modal"
                             aria-label="Close"></button>
                     </div>
@@ -107,7 +107,7 @@
             <div class="modal-dialog">
                 <div class="rounded modal-content bg-secondary h-100">
                     <div class="modal-header">
-                        <h5 class="modal-title" style="color: red;">Edit Testimonial</h5>
+                        <h5 class="modal-title" style="color: red;">Edit Award Gallery</h5>
                         <button type="button" class="btn-dark btn-close" data-bs-dismiss="modal"
                             aria-label="Close"></button>
                     </div>
