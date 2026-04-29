@@ -36,7 +36,7 @@
                     {{-- <a href="{{ route('admin.bottominfos.index') }}" class="dropdown-item">Slider Bottom</a> --}}
                 </div>
             </div>
-            <a href="{{ route('admin.aboutlists.index') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>About Us</a>
+            <a href="{{ route('admin.aboutlists.index') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Success Count</a>
             <a href="{{ route('admin.aboutinfos.index') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Destination</a>
             <a href="{{ route('admin.register-members.index') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Register Members</a>
 
@@ -57,14 +57,14 @@
             </div>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
-                        class="fa fa-th me-2"></i>Scolarships</a>
+                        class="fa fa-th me-2"></i>Award Gallery</a>
                 <div class="bg-transparent border-0 dropdown-menu">
                     <a href="{{ route('admin.testimonials.index') }}" class="dropdown-item">Award Gallery</a>
                 </div>
             </div>
 
-            <a href="{{ url('admin/chooseus-data') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Choose Us</a>
-            <a href="{{ url('admin/faqs') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Faq's</a>
+            <!-- <a href="{{ url('admin/chooseus-data') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Choose Us</a>
+            <a href="{{ url('admin/faqs') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Faq's</a> -->
 
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
@@ -83,7 +83,7 @@
                 </div>
             </div>
 
-            <div class="nav-item dropdown">
+            <!-- <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
                         class="fa fa-th me-2"></i>Additional Text</a>
                 <div class="bg-transparent border-0 dropdown-menu">
@@ -93,15 +93,15 @@
                     <a href="{{ url('admin/web/texts') }}" class="dropdown-item">Web Texts</a>
                     <a href="{{ url('admin/web/facts') }}" class="dropdown-item">Facts Info</a>
                 </div>
-            </div>
+            </div> -->
 
-            <div class="nav-item dropdown">
+            <!-- <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
                         class="fa fa-th me-2"></i>Pages</a>
                 <div class="bg-transparent border-0 dropdown-menu">
                     <a href="{{ route('admin.clients.index') }}" class="dropdown-item">Page</a>
                 </div>
-            </div>
+            </div> -->
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
                         class="fas fa-cog fa-spin me-2"></i>Web Settings</a>
@@ -109,13 +109,13 @@
                     <a href="{{ route('admin.basicinfos.index') }}" class="dropdown-item">Basic Info</a>
                 </div>
             </div>
-            <div class="nav-item dropdown">
+            <!-- <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
                         class="fas fa-cog fa-spin me-2"></i>Factory </a>
                 <div class="bg-transparent border-0 dropdown-menu">
                     <a href="{{ route('admin.factory.index') }}" class="dropdown-item">Factory Info</a>
                 </div>
-            </div>
+            </div> -->
         </div>
     </nav>
 </div>
