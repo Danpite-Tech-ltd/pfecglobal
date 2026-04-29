@@ -35,11 +35,14 @@ class ListdetailController extends Controller
         $contact = new Contact();
         $contact->name = $request->name;
         $contact->email = $request->email;
-        $contact->subject = $request->subject;
-        $contact->message = $request->message;
+        $contact->phone = $request->phone;
+        $contact->office_address = $request->office_address;
+        $contact->study_destination = $request->study_destination;
+        $contact->english_status = $request->english_status;
+        $contact->your_studies = $request->your_studies;
         $contact->save();
-        
-        return back()->with('success','Message send successfully!');
+
+        return back()->with('success','Thank you for Registering');
     }
 
     public function pagedata($slug)

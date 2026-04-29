@@ -66,9 +66,9 @@ Route::group(['prefix'=>'admin','middleware' => ['auth.admin:admin']], function 
     Route::post('/update/web/texts/{id}', [BasicinfoController::class, 'updatewebtexts']);
     Route::get('/web/facts', [BasicinfoController::class, 'webfacts']);
     Route::post('/update/web/facts/{id}', [BasicinfoController::class, 'updatewebfacts']);
-    
+
     // basic info
-    Route::resource('factory', FactoryController::class,['names'=>'admin.factory']); 
+    Route::resource('factory', FactoryController::class,['names'=>'admin.factory']);
     // Route::post('/pixel/analytics/{id}', [FactoryController::class, 'pixelanalytics']);
     Route::post('/factory/update/{id}', [FactoryController::class, 'sociallink']);
     Route::post('/metainfo/update/{id}', [FactoryController::class, 'metainfo']);
@@ -122,6 +122,8 @@ Route::group(['prefix'=>'admin','middleware' => ['auth.admin:admin']], function 
     Route::get('testimonial-data', [AboutlistController::class,'indextestimonial']);
     Route::post('aboutus/{id}', [AboutlistController::class, 'update']);
     Route::post('about-details/update', [AboutlistController::class, 'aboutdetailsupdate']);
+
+    Route::get('register-members', [AboutlistController::class, 'register_members'])->name('admin.register-members.index');
 
     //serviceinfo
     Route::resource('services', ServiceController::class,['names'=>'admin.services']);
