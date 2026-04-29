@@ -221,11 +221,33 @@
                     Pick a destination below and learn everything you need to make an informed decision.</p>
             </div>
             <div class="owl-carousel certificate-slider">
-                @foreach ($testimonials as $value)
-                    <div class="item text-center">
-                        <img src="{{ $value->image }}" alt="">
-                    </div>
-                @endforeach
+                <div class="item text-center">
+                    <img src="{{ asset('public/study.png') }}" alt="">
+                </div>
+                <div class="item text-center">
+                    <img src="{{ asset('public/study.png') }}" alt="">
+                </div>
+                <div class="item text-center">
+                    <img src="{{ asset('public/study.png') }}" alt="">
+                </div>
+                <div class="item text-center">
+                    <img src="{{ asset('public/study.png') }}" alt="">
+                </div>
+                <div class="item text-center">
+                    <img src="{{ asset('public/study.png') }}" alt="">
+                </div>
+                <div class="item text-center">
+                    <img src="{{ asset('public/study.png') }}" alt="">
+                </div>
+                <div class="item text-center">
+                    <img src="{{ asset('public/study.png') }}" alt="">
+                </div>
+                <div class="item text-center">
+                    <img src="{{ asset('public/study.png') }}" alt="">
+                </div>
+                <div class="item text-center">
+                    <img src="{{ asset('public/study.png') }}" alt="">
+                </div>
             </div>
             <a href="{{ url('contact-us') }}" style="padding:13px 23px;box-shadow:none;text-transform: capitalize;"
                 class="btn my-4">Book a FREE Consultation</a>
@@ -235,21 +257,93 @@
         </div>
     </section>
 
+    <!-- map section -->
+    <section class="py-4" style="background:#e4f6fa">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-4">
+                    <div class="mb-5">
+                        <h3 class="fw-bold">Why Choose <span style="color:#0d6efd;">Us</span></h3>
+                    </div>
 
+                    <div class="row">
+
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <div class="rounded-circle d-inline-flex align-items-center justify-content-center"
+                                    style="width:50px;height:50px;background:#f1c6c6;">
+                                    <i class="bi bi-person" style="font-size:18px;color:#e74c3c;"></i>
+                                </div>
+                            </div>
+                            <h4 class="fw-bold text-danger">22,000+</h4>
+                            <p>Students Assisted</p>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <div class="rounded-circle d-inline-flex align-items-center justify-content-center"
+                                    style="width:50px;height:50px;background:#f1c6c6;">
+                                    <i class="bi bi-gem" style="font-size:18px;color:#e74c3c;"></i>
+                                </div>
+                            </div>
+                            <h4 class="fw-bold text-danger">550+</h4>
+                            <p>Partner Institutions</p>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <div class="rounded-circle d-inline-flex align-items-center justify-content-center"
+                                    style="width:50px;height:50px;background:#f1c6c6;">
+                                    <i class="bi bi-award" style="font-size:18px;color:#e74c3c;"></i>
+                                </div>
+                            </div>
+                            <h4 class="fw-bold text-danger">96.7%</h4>
+                            <p>Visa Grants</p>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <div class="rounded-circle d-inline-flex align-items-center justify-content-center"
+                                    style="width:50px;height:50px;background:#f1c6c6;">
+                                    <i class="bi bi-trophy" style="font-size:18px;color:#e74c3c;"></i>
+                                </div>
+                            </div>
+                            <h4 class="fw-bold text-danger">18</h4>
+                            <p>Years of Expertise</p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-12 col-lg-8">
+                    <img src="{{ asset('public/map.webp') }}" alt="" class="w-100">
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!--  -->
     <!-- CLIENT LOGOS -->
     <div class="client-section">
         <div class="container text-center">
-            <p style="margin-bottom: 30px; font-weight: 700; font-size: 0.85rem; color: #94A3B8; letter-spacing: 2px;">
-                TRUSTED BY INDUSTRY GIANTS</p>
+            <p style="margin-bottom: 30px; font-weight: 700; font-size: 1.2rem; color: #94A3B8; letter-spacing: 2px;">
+                Awards & achievements</p>
             <div class="owl-carousel brand-slider">
 
-                @foreach ($testimonials as $value)
-                    <div class="item text-center">
-                        <img src="{{ $value->image }}" alt="" class="brand-img">
-                    </div>
-                @endforeach
+                <div class="item text-center">
+                    <img src="{{ asset('public/testimonial.png') }}" alt="">
+                </div>
+                <div class="item text-center">
+                    <img src="{{ asset('public/testimonial.png') }}" alt="">
+                </div>
+                <div class="item text-center">
+                    <img src="{{ asset('public/testimonial.png') }}" alt="">
+                </div>
+                <div class="item text-center">
+                    <img src="{{ asset('public/testimonial.png') }}" alt="">
+                </div>
+                <div class="item text-center">
+                    <img src="{{ asset('public/testimonial.png') }}" alt="">
+                </div>
 
             </div>
 
@@ -327,13 +421,13 @@
                     items: 2
                 },
                 576: {
-                    items: 3
+                    items: 2
                 },
                 768: {
-                    items: 4
+                    items: 3
                 },
                 1000: {
-                    items: 6
+                    items: 3
                 }
             }
         });
