@@ -327,8 +327,8 @@ Request::url()=='https://syslic.xyz/about-us/')
                 </a>
 
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item " href="#">Awards and Achievements</a></li>
                     <li><a class="dropdown-item " href="{{ url('/team') }}">Our Leadership Team</a></li>
+                    <li><a class="dropdown-item " href="{{ url('awards-and-accolades') }}">Awards and Achievements</a></li>
                     <li><a class="dropdown-item" href="#">Testimonials</a></li>
                 </ul>
             </div>
@@ -376,11 +376,13 @@ Request::url()=='https://syslic.xyz/about-us/')
                 </a>
 
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item " href="#">Study In Australia</a></li>
-                    <li><a class="dropdown-item " href="#">Study In UK</a></li>
-                    <li><a class="dropdown-item" href="#">Study In USA</a></li>
-                    <li><a class="dropdown-item" href="#">Study In Nepal</a></li>
-                    <li><a class="dropdown-item" href="#">Study In Korea</a></li>
+                    @php
+                        $scolarships = App\Models\Portfoliosubcategory::latest()->get();
+                    @endphp
+                    @foreach ($scolarships as $scolarship)
+                        <li><a class="dropdown-item "
+                                href="{{ url('scholarship') }}/{{ $scolarship->slug }}">{{ $scolarship->title }}</a></li>
+                    @endforeach
                 </ul>
             </div>
 

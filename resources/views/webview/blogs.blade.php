@@ -26,7 +26,6 @@
 
 @section('maincontent')
     <style>
-
         /* Top Hero Section */
         .hero-area {
             background-color: #f0faff;
@@ -69,12 +68,11 @@
             border-radius: 8px;
             height: 100%;
             transition: 0.3s;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            margin-bottom: -25px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
         .blog-card:hover {
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         }
 
         .card-img-box {
@@ -141,10 +139,12 @@
             .hero-img-side {
                 min-height: 250px;
             }
+
             .hero-text-side {
                 padding: 30px 20px;
                 text-align: center;
             }
+
             .hero-text-side h1 {
                 font-size: 30px;
             }
@@ -160,7 +160,10 @@
                         <div class="row justify-content-center">
                             <div class="col-11 hero-text-side">
                                 <h1>Blogs</h1>
-                                <p>Welcome to {{ env('APP_NAME') }} blog—your trusted guide for everything you need to know about studying and living Down Under. From expert insights on universities and visas to inspiring student success stories, we're here to help you take the next step toward your Australian dream.</p>
+                                <p>Welcome to {{ env('APP_NAME') }} blog—your trusted guide for everything you need to know
+                                    about studying and living Down Under. From expert insights on universities and visas to
+                                    inspiring student success stories, we're here to help you take the next step toward your
+                                    Australian dream.</p>
                             </div>
                         </div>
                     </div>
@@ -178,59 +181,24 @@
         <div class="container">
             <div class="row g-4">
 
-                <!-- Blog 1: PC-4, Mobile-12 -->
-                <div class="col-12 col-md-4">
-                    <div class="blog-card">
-                        <div class="card-img-box">
-                            <img src="https://via.placeholder.com/400x250" alt="Study Canada">
-                        </div>
-                        <div class="blog-content">
-                            <h2 class="blog-title">Cost of Living in Canada for Bangladeshi Students: A Complete Guide (2026)</h2>
-                            <a href="#" class="read-more-btn">Read More</a>
-                        </div>
-                        <div class="blog-footer">
-                            <div class="meta-item"><i class="fa-solid fa-user"></i> By Junayed Leon</div>
-                            <div class="meta-item"><i class="fa-solid fa-calendar"></i> April 29, 2026</div>
-                            <div class="meta-item"><i class="fa-solid fa-folder"></i> Study in Canada</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Blog 2: PC-4, Mobile-12 -->
-                <div class="col-12 col-md-4">
-                    <div class="blog-card">
-                        <div class="card-img-box">
-                            <img src="https://via.placeholder.com/400x250" alt="Griffith University">
-                        </div>
-                        <div class="blog-content">
-                            <h2 class="blog-title">Why Choose Griffith University? Ranking and Popular Courses</h2>
-                            <a href="#" class="read-more-btn">Read More</a>
-                        </div>
-                        <div class="blog-footer">
-                            <div class="meta-item"><i class="fa-solid fa-user"></i> By Junayed Leon</div>
-                            <div class="meta-item"><i class="fa-solid fa-calendar"></i> April 15, 2026</div>
-                            <div class="meta-item"><i class="fa-solid fa-folder"></i> Study in Australia</div>
+                @foreach ($blogs as $blog)
+                    <div class="col-12 col-md-4">
+                        <div class="blog-card">
+                            <div class="card-img-box">
+                                <img src="{{ asset($blog->thumbnail) }}" alt="Study Canada">
+                            </div>
+                            <div class="blog-content">
+                                <h2 class="blog-title">{{$blog->title}}</h2>
+                                <a href="{{ url('blog') }}/{{ $blog->slug }}" class="read-more-btn">Read More</a>
+                            </div>
+                            <div class="blog-footer">
+                                <div class="meta-item"><i class="fa-solid fa-user"></i> By {{ $blog->author }}</div>
+                                <div class="meta-item"><i class="fa-solid fa-calendar"></i>  {{ $blog->created_at->format('F d, Y') }}</div>
+                                <div class="meta-item"><i class="fa-solid fa-folder"></i> {{ $blog->study_title }}</div>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Blog 3: PC-4, Mobile-12 -->
-                <div class="col-12 col-md-4">
-                    <div class="blog-card">
-                        <div class="card-img-box">
-                            <img src="https://via.placeholder.com/400x250" alt="Adelaide University">
-                        </div>
-                        <div class="blog-content">
-                            <h2 class="blog-title">Study at Adelaide University: Easy scholarships and research opportunities in Australia</h2>
-                            <a href="#" class="read-more-btn">Read More</a>
-                        </div>
-                        <div class="blog-footer">
-                            <div class="meta-item"><i class="fa-solid fa-user"></i> By Junayed Leon</div>
-                            <div class="meta-item"><i class="fa-solid fa-calendar"></i> April 15, 2026</div>
-                            <div class="meta-item"><i class="fa-solid fa-folder"></i> Study in Australia</div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
 
             </div>
         </div>

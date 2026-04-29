@@ -14,7 +14,8 @@ use App\Models\Service;
 use App\Models\Team;
 use App\Models\Aboutinfo;
 use App\Models\Factory;
-
+use App\Models\Portfoliosubcategory;
+use App\Models\Testimonial;
 
 class ListdetailController extends Controller
 {
@@ -89,6 +90,18 @@ class ListdetailController extends Controller
         $blogdata = Portfolio::where('slug', $slug)->first();
         $blogs = Portfolio::where('status', 'Active')->inRandomOrder()->limit(10)->get();
         return view('webview.blogdetails', ['blogdata' => $blogdata, 'blogs' => $blogs]);
+    }
+
+    public function scholarship($slug)
+    {
+        $scholarship = Portfoliosubcategory::where('slug',$slug)->first();
+        return view('webview.scolarship',compact('scholarship'));
+    }
+
+    public function awards_accolades()
+    {
+        $awards = Testimonial::where('status','Active')->latest()->get();
+        return view('webview.awards-and-accolades',compact('awards'));
     }
 
     public function services()
