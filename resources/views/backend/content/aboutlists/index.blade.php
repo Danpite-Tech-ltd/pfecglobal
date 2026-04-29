@@ -37,43 +37,43 @@
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" name="title" value="{{ $aboutus->title }}"
                                     id="floatingInput" placeholder="Title">
-                                <label for="floatingInput">Title</label>
+                                <label for="floatingInput">Students</label>
                             </div>
 
                             <div class="form-group mb-3">
-                                <label for="floatingInput">Description</label>
+                                <label for="floatingInput">Students Count</label>
                                 <textarea class="form-control" name="details" id="details" rows="6">{{ $aboutus->details }}</textarea>
                             </div>
                             <div class="form-group mb-3">
-                                <label for="floatingInput">Small Description</label>
+                                <label for="floatingInput">Partner</label>
                                 <textarea class="form-control" name="small_details" id="small_details" rows="3">{{ $aboutus->small_details }}</textarea>
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" name="title_one"
                                     value="{{ $aboutus->title_one }}" id="floatingInput" placeholder="Award">
-                                <label for="floatingInput">Award</label>
+                                <label for="floatingInput">Partner Count</label>
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" name="title_two"
                                     value="{{ $aboutus->title_two }}" id="floatingInput" placeholder="Support">
-                                <label for="floatingInput">Support</label>
+                                <label for="floatingInput">Visa</label>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" name="title_three"
                                     value="{{ $aboutus->title_three }}" id="floatingInput" placeholder="Staff">
-                                <label for="floatingInput">Staff</label>
+                                <label for="floatingInput">Visa Percentage</label>
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" name="title_four"
                                     value="{{ $aboutus->title_four }}" id="floatingInput" placeholder="Price">
-                                <label for="floatingInput">Price</label>
+                                <label for="floatingInput">Expertise</label>
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" name="title_five"
                                     value="{{ $aboutus->title_five }}" id="floatingInput" placeholder="Button Link">
-                                <label for="floatingInput">Button Link</label>
+                                <label for="floatingInput">Expertise Count</label>
                             </div>
                             <div class="mb-3">
                                 <input class="form-control form-control-lg bg-dark" name="image" id="formFileLg"

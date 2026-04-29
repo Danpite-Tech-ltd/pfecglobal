@@ -44,6 +44,8 @@
         $mslider = App\Models\Slider::where('id', 1)->first();
         $destinations = App\Models\Aboutinfo::where('status', 'Active')->select('id', 'about_image')->latest()->get();
         $resources = App\Models\service::where('status', 'Active')->select('id', 'service_title', 'service_image')->latest()->get();
+        $count = App\Models\Aboutlist::where('id', 1)->first();
+        $testimonials = App\Models\Testimonial::where('status', 'Active')->latest()->get();
     @endphp
 
     <section class="" style="background:#080f3d">
@@ -219,8 +221,8 @@
                                     <i class="bi bi-person" style="font-size:18px;color:#e74c3c;"></i>
                                 </div>
                             </div>
-                            <h4 class="fw-bold text-danger">22,000+</h4>
-                            <p>Students Assisted</p>
+                            <h4 class="fw-bold text-danger">{{ $count->details }}</h4>
+                            <p>{{ $count->title }}</p>
                         </div>
 
                         <div class="col-6">
@@ -230,8 +232,8 @@
                                     <i class="bi bi-gem" style="font-size:18px;color:#e74c3c;"></i>
                                 </div>
                             </div>
-                            <h4 class="fw-bold text-danger">550+</h4>
-                            <p>Partner Institutions</p>
+                            <h4 class="fw-bold text-danger">{{ $count->title_one }}</h4>
+                            <p>{{ $count->small_details }}</p>
                         </div>
 
                         <div class="col-6">
@@ -241,8 +243,8 @@
                                     <i class="bi bi-award" style="font-size:18px;color:#e74c3c;"></i>
                                 </div>
                             </div>
-                            <h4 class="fw-bold text-danger">96.7%</h4>
-                            <p>Visa Grants</p>
+                            <h4 class="fw-bold text-danger">{{ $count->title_three }}</h4>
+                            <p>{{ $count->title_two }}</p>
                         </div>
 
                         <div class="col-6">
@@ -252,14 +254,14 @@
                                     <i class="bi bi-trophy" style="font-size:18px;color:#e74c3c;"></i>
                                 </div>
                             </div>
-                            <h4 class="fw-bold text-danger">18</h4>
-                            <p>Years of Expertise</p>
+                            <h4 class="fw-bold text-danger">{{ $count->title_five }}</h4>
+                            <p>{{ $count->title_four }}</p>
                         </div>
 
                     </div>
                 </div>
                 <div class="col-12 col-lg-8">
-                    <img src="{{ asset('public/map.webp') }}" alt="" class="w-100">
+                    <img src="{{ asset($count->image) }}" alt="" class="w-100">
                 </div>
             </div>
         </div>
@@ -272,24 +274,15 @@
             <p style="margin-bottom: 30px; font-weight: 700; font-size: 1.2rem; color: #94A3B8; letter-spacing: 2px;">
                 Awards & achievements</p>
             <div class="owl-carousel brand-slider">
-
-                <div class="item text-center">
-                    <img src="{{ asset('public/testimonial.png') }}" alt="">
-                </div>
-                <div class="item text-center">
-                    <img src="{{ asset('public/testimonial.png') }}" alt="">
-                </div>
-                <div class="item text-center">
-                    <img src="{{ asset('public/testimonial.png') }}" alt="">
-                </div>
-                <div class="item text-center">
-                    <img src="{{ asset('public/testimonial.png') }}" alt="">
-                </div>
-                <div class="item text-center">
-                    <img src="{{ asset('public/testimonial.png') }}" alt="">
-                </div>
-
+                @foreach ($testimonials as $value)
+                    <div class="item text-center">
+                        <img src="{{ asset($value->image) }}" alt="">
+                    </div>                
+                @endforeach
             </div>
+
+            <a href="{{ url('/awards-and-accolades') }}" style="padding:13px 23px;box-shadow:none;text-transform: capitalize;text-align: center"
+                        class="btn">Explore All</a>
 
         </div>
     </div>
