@@ -24,6 +24,11 @@ class ListdetailController extends Controller
         $destination = Aboutinfo::where('id', $id)->first();
         return view('webview.content.destination', ['destination' => $destination]);
     }
+    public function resources($id)
+    {
+        $resources = Service::where('id', $id)->first();
+        return view('webview.content.resources', ['resources' => $resources]);
+    }
     public function lifearcadex()
     {
         return view('webview.lifearx');

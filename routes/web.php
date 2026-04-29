@@ -20,6 +20,7 @@ Route::get('/', function () {
     return view('webview.content.maincontent');
 });
 Route::get('destination/{id}', [ListdetailController::class, 'destination']);
+Route::get('services/{id}', [ListdetailController::class, 'resources']);
 
 
 

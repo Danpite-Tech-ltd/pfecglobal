@@ -42,7 +42,8 @@
     @php
         $pcslider = App\Models\Slider::where('id', 2)->first();
         $mslider = App\Models\Slider::where('id', 1)->first();
-        $destinations = App\Models\Aboutinfo::where('status', 'Active')->latest()->get()->pluck('about_image');
+        $destinations = App\Models\Aboutinfo::where('status', 'Active')->select('id', 'about_image')->latest()->get();
+        $resources = App\Models\service::where('status', 'Active')->select('id', 'service_title', 'service_image')->latest()->get();
     @endphp
 
     <section class="" style="background:#080f3d">
@@ -155,56 +156,19 @@
                 <!-- RIGHT CARDS -->
                 <div class="col-lg-7">
                     <div class="row g-3">
-
+                        @foreach ($resources as $item)
                         <div class="col-md-6">
-                            <a href="#" class="service-card">
+                            <a href="{{ url('/services', $item->id) }}" class="service-card">
                                 <div class="service-left">
-                                    <div class="icon-box icon-blue">🏫</div>
-                                    <div>Admission Support</div>
+                                    <div class="icon-box icon-blue">
+                                        <img src="{{ asset($item->service_image) }}" alt="service" style="width:20px;">
+                                    </div>
+                                    <div>{{ $item->service_title }}</div>
                                 </div>
                                 <div class="arrow">></div>
                             </a>
                         </div>
-
-                        <div class="col-md-6">
-                            <a href="#" class="service-card">
-                                <div class="service-left">
-                                    <div class="icon-box icon-yellow">➕</div>
-                                    <div>Health Insurance</div>
-                                </div>
-                                <div class="arrow">></div>
-                            </a>
-                        </div>
-
-                        <div class="col-md-6">
-                            <a href="#" class="service-card">
-                                <div class="service-left">
-                                    <div class="icon-box icon-red">🎓</div>
-                                    <div>Scholarship Guidance</div>
-                                </div>
-                                <div class="arrow">></div>
-                            </a>
-                        </div>
-
-                        <div class="col-md-6">
-                            <a href="#" class="service-card">
-                                <div class="service-left">
-                                    <div class="icon-box icon-red">🏠</div>
-                                    <div>Student Accommodation</div>
-                                </div>
-                                <div class="arrow">></div>
-                            </a>
-                        </div>
-
-                        <div class="col-md-6">
-                            <a href="#" class="service-card">
-                                <div class="service-left">
-                                    <div class="icon-box icon-green">✈️</div>
-                                    <div>Visa Services</div>
-                                </div>
-                                <div class="arrow">></div>
-                            </a>
-                        </div>
+                        @endforeach
 
                     </div>
                 </div>
@@ -223,8 +187,8 @@
             </div>
             <div class="owl-carousel certificate-slider">
                 @foreach ($destinations as $item)
-                    <a href="" class="item text-center">
-                        <img src="{{ asset($item) }}" alt="">
+                    <a href="{{ url('/destination', $item->id) }}" class="item text-center">
+                        <img src="{{ asset($item->about_image) }}" alt="">
                     </a>
                 @endforeach
                 
