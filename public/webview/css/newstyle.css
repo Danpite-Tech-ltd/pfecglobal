@@ -13,6 +13,18 @@
     padding: 0;
     box-sizing: border-box;
 }
+@media (max-width: 600px) {
+    .mobile-hide {
+        display: none;
+    }
+    
+}
+@media (min-width: 600px) {
+    .pc-hide {
+        display: none;
+    }
+}
+
 body {
     font-family: "Plus Jakarta Sans", sans-serif;
     background: var(--light);
@@ -33,11 +45,11 @@ html {
 }
 
 /* Layout Utilities */
-.container {
+/* .container {
     max-width: 1250px;
     margin: 0 auto;
     padding: 0 20px;
-}
+} */
 .section {
     padding: 100px 0;
 }

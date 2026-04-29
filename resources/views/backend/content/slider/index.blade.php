@@ -25,7 +25,7 @@
                 <div class="d-flex align-items-center justify-content-between" style="width: 50%;float:left;">
                     <h6 class="mb-0">Slider List</h6>
                 </div>
-                <div class="" style="width: 50%;float:left;">
+                <div class="d-none" style="width: 50%;float:left;">
                     <a type="button" data-bs-toggle="modal" data-bs-target="#mainSlider" class="btn btn-primary m-2"
                         style="float: right"> + Create Slider</a>
                 </div>
@@ -122,23 +122,23 @@
                             @csrf
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" name="slider_title" id="slider_title"
-                                    placeholder="Title" required>
-                                <label for="floatingInput">Title</label>
+                                    placeholder="Title" required readonly>
+                                <label for="floatingInput">Section</label>
                             </div>
                             <div class="form-floating mb-3">
                                 <textarea class="form-control" placeholder="Text" name="slider_text" id="slider_text" style="height: 80px;"></textarea>
-                                <label for="floatingTextarea">Text</label>
+                                <label for="floatingTextarea">Title</label>
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" name="slider_btn_name"
                                     id="slider_btn_name" placeholder="Button Name">
-                                <label for="floatingInput">Button Name</label>
+                                <label for="floatingInput">Text</label>
                             </div>
-                            <div class="form-floating mb-3">
+                            <!-- <div class="form-floating mb-3">
                                 <input type="text" class="form-control" name="slider_btn_link"
                                     id="slider_btn_link" placeholder="Button Link">
                                 <label for="floatingInput">Button Link</label>
-                            </div>
+                            </div> -->
                             <div class="mt-4 mb-4">
                                 <input class="form-control form-control-lg bg-dark" name="slider_image"
                                     id="slider_image" type="file">

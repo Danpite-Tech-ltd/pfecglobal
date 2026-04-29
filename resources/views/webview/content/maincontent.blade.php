@@ -30,22 +30,220 @@
 
     <!-- Favicon -->
     <link href="{{ asset($basicinfo->logo) }}" rel="icon">
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 
 
 
 @endsection
 @section('maincontent')
+    @php
+        $pcslider = App\Models\Slider::where('id', 2)->first();
+        $mslider = App\Models\Slider::where('id', 1)->first();
+    @endphp
+
+    <section class="" style="background:#080f3d">
+        <div class="container mobile-hide">
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%; padding: 50px 0;">
+                <div style="max-width: 450px;text-align:center;">
+                    <h3 style="font-size: 32px;color:white;">{{ $pcslider->slider_text }}</h3>
+                    <p style="font-size: 16px;color:white;">{{ $pcslider->slider_btn_name }}</p>
+                    <a href="{{ url('contact-us') }}" style="padding:13px 23px;box-shadow:none;text-transform: capitalize;"
+                        class="btn">Book a FREE Consultation</a>
+                </div>
+            </div>
+            <img src="{{ asset($pcslider->slider_image) }}" alt="" class="w-100">
+        </div>
+        <div class="container pc-hide">
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%; padding: 50px 0;">
+                <div style="max-width: 450px;text-align:center;">
+                    <h3 style="font-size: 24px;color:white;">{{ $mslider->slider_text }}</h3>
+                    <p style="font-size: 16px;color:white;">{{ $mslider->slider_btn_name }}</p>
+                    <a href="{{ url('contact-us') }}" style="padding:13px 23px;box-shadow:none;text-transform: capitalize;"
+                        class="btn">Book a FREE Consultation</a>
+                </div>
+            </div>
+            <img src="{{ asset($mslider->slider_image) }}" alt="" class="w-100">
+        </div>
+    </section>
+
+    <style>
+        .service-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: 0.3s;
+            border: 1px solid #eee;
+        }
+
+        .service-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .service-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .icon-box {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .icon-blue {
+            background: #e6f6fb;
+            color: #00a8cc;
+        }
+
+        .icon-yellow {
+            background: #fff4d6;
+            color: #ffc107;
+        }
+
+        .icon-red {
+            background: #ffe5e5;
+            color: #ff4d4f;
+        }
+
+        .icon-green {
+            background: #eaffea;
+            color: #28a745;
+        }
+
+        .arrow {
+            color: #ff4d4f;
+            font-weight: bold;
+        }
+
+        .section-title {
+            font-size: 28px !important;
+        }
+
+        .section-title span {
+            color: #1d3b8b;
+        }
+    </style>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+
+                <!-- LEFT TEXT -->
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <h3 class="section-title fw-bold">
+                        How PFEC Global <span>Simplifies your Study Abroad Journey?</span>
+                    </h3>
+                    <p class="text-muted">
+                        Our services provide end-to-end assistance to study abroad aspirants.
+                        We make the journey hassle-free!
+                    </p>
+                </div>
+
+                <!-- RIGHT CARDS -->
+                <div class="col-lg-7">
+                    <div class="row g-3">
+
+                        <div class="col-md-6">
+                            <a href="#" class="service-card">
+                                <div class="service-left">
+                                    <div class="icon-box icon-blue">🏫</div>
+                                    <div>Admission Support</div>
+                                </div>
+                                <div class="arrow">></div>
+                            </a>
+                        </div>
+
+                        <div class="col-md-6">
+                            <a href="#" class="service-card">
+                                <div class="service-left">
+                                    <div class="icon-box icon-yellow">➕</div>
+                                    <div>Health Insurance</div>
+                                </div>
+                                <div class="arrow">></div>
+                            </a>
+                        </div>
+
+                        <div class="col-md-6">
+                            <a href="#" class="service-card">
+                                <div class="service-left">
+                                    <div class="icon-box icon-red">🎓</div>
+                                    <div>Scholarship Guidance</div>
+                                </div>
+                                <div class="arrow">></div>
+                            </a>
+                        </div>
+
+                        <div class="col-md-6">
+                            <a href="#" class="service-card">
+                                <div class="service-left">
+                                    <div class="icon-box icon-red">🏠</div>
+                                    <div>Student Accommodation</div>
+                                </div>
+                                <div class="arrow">></div>
+                            </a>
+                        </div>
+
+                        <div class="col-md-6">
+                            <a href="#" class="service-card">
+                                <div class="service-left">
+                                    <div class="icon-box icon-green">✈️</div>
+                                    <div>Visa Services</div>
+                                </div>
+                                <div class="arrow">></div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- study center -->
+    <section class="container py-3">
+        <div class="d-flex flex-column align-items-center text-center gap-3">
+            <div style="max-width: 770px;">
+                <h3>Gain Access to Top Institutions across the Globe</h3>
+                <p class="text-muted">PFEC Global is a partner of renowned institutions across 11 countries.
+                    Pick a destination below and learn everything you need to make an informed decision.</p>
+            </div>
+            <div class="owl-carousel certificate-slider">
+                @foreach ($testimonials as $value)
+                    <div class="item text-center">
+                        <img src="{{ $value->image }}" alt="">
+                    </div>
+                @endforeach
+            </div>
+            <a href="{{ url('contact-us') }}" style="padding:13px 23px;box-shadow:none;text-transform: capitalize;"
+                class="btn my-4">Book a FREE Consultation</a>
+        </div>
+        <div>
+            <img src="{{ asset('public/step.webp') }}" alt="" class="w-100">
+        </div>
+    </section>
 
 
+
+    <!--  -->
     <!-- CLIENT LOGOS -->
     <div class="client-section">
         <div class="container text-center">
             <p style="margin-bottom: 30px; font-weight: 700; font-size: 0.85rem; color: #94A3B8; letter-spacing: 2px;">
                 TRUSTED BY INDUSTRY GIANTS</p>
-           <div class="owl-carousel brand-slider">
+            <div class="owl-carousel brand-slider">
 
                 @foreach ($testimonials as $value)
                     <div class="item text-center">
@@ -84,14 +282,13 @@
             align-items: center;
             text-align: center;
         }
-        
-        .brand-img{
-            width:120px;
-            height:60px;
-            object-fit:contain;
-            margin:auto;
-        }
 
+        .brand-img {
+            width: 120px;
+            height: 60px;
+            object-fit: contain;
+            margin: auto;
+        }
     </style>
 
 
@@ -115,7 +312,7 @@
                 prevEl: '.swiper-button-prev',
             },
         });
-        
+
         $('.brand-slider').owlCarousel({
             loop: true,
             margin: 30,
@@ -124,23 +321,23 @@
             autoplayHoverPause: true,
             dots: false,
             nav: false,
-        
-            responsive:{
-                0:{
-                    items:2
+
+            responsive: {
+                0: {
+                    items: 2
                 },
-                576:{
-                    items:3
+                576: {
+                    items: 3
                 },
-                768:{
-                    items:4
+                768: {
+                    items: 4
                 },
-                1000:{
-                    items:6
+                1000: {
+                    items: 6
                 }
             }
         });
-        
+
         $('.certificate-slider').owlCarousel({
             loop: true,
             margin: 30,
@@ -149,26 +346,26 @@
             autoplayHoverPause: true,
             dots: false,
             nav: false,
-        
-            responsive:{
-                0:{
-                    items:1
+
+            responsive: {
+                0: {
+                    items: 2
                 },
-                576:{
-                    items:1
+                576: {
+                    items: 2
                 },
-                768:{
-                    items:2
+                768: {
+                    items: 4
                 },
-                1000:{
-                    items:2
+                1000: {
+                    items: 6
                 }
             }
         });
 
     </script>
-    
-    
+
+
 
 
 
