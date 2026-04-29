@@ -2,7 +2,7 @@
 
 @section('maincontent')
 @section('title')
-    {{ env('APP_NAME') }}- Product
+    {{ env('APP_NAME') }}- Blog
 @endsection
 <style>
     div#roleinfo_length {
@@ -23,11 +23,11 @@
         <div class="col-sm-12 col-md-12 col-xl-12">
             <div class="p-4 pb-0 rounded h-100 bg-secondary">
                 <div class="d-flex align-items-center justify-content-between" style="width: 50%;float:left;">
-                    <h6 class="mb-0">Products List</h6>
+                    <h6 class="mb-0">Blogs List</h6>
                 </div>
                 <div class="" style="width: 50%;float:left;">
                     <a href="{{route('admin.portfolios.create')}}" class="m-2 btn btn-primary"
-                        style="float: right"> + Create Product</a>
+                        style="float: right"> + Create Blog</a>
                 </div>
             </div>
         </div>

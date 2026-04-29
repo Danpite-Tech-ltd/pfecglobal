@@ -39,15 +39,12 @@
             <a href="{{ route('admin.testimonials.index') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Trusted Industry</a>
             <a href="{{ route('admin.aboutlists.index') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>About Us</a>
             <a href="{{ route('admin.register-members.index') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Register Members</a>
-            <a href="{{ route('admin.aboutinfos.index') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Client Counter</a>
 
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
-                        class="fa fa-th me-2"></i>Products</a>
+                        class="fa fa-th me-2"></i>Blogs</a>
                 <div class="bg-transparent border-0 dropdown-menu">
-                    <a href="{{ route('admin.portfoliocategories.index') }}" class="dropdown-item">Category</a>
-                    <a href="{{ route('admin.portfoliosubcategories.index') }}" class="dropdown-item">Subcategory</a>
-                    <a href="{{ route('admin.portfolios.index') }}" class="dropdown-item">Items</a>
+                    <a href="{{ route('admin.portfolios.index') }}" class="dropdown-item">Blog</a>
                 </div>
             </div>
 
