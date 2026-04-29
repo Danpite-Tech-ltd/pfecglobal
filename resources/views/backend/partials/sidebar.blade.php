@@ -39,6 +39,8 @@
             <a href="{{ route('admin.testimonials.index') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Trusted Industry</a>
             <a href="{{ route('admin.aboutlists.index') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>About Us</a>
             <a href="{{ route('admin.aboutinfos.index') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Destination</a>
+            <a href="{{ route('admin.register-members.index') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Register Members</a>
+            <a href="{{ route('admin.aboutinfos.index') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Client Counter</a>
 
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i

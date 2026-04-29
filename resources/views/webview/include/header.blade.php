@@ -256,6 +256,27 @@ Request::url()=='https://syslic.xyz/about-us/')
                 display: none;
             }
         }
+
+        .navbar {
+            position: relative;
+            z-index: 1000;
+            overflow: visible !important;
+        }
+
+        .nav-inner {
+            overflow: visible !important;
+        }
+
+        .nav-links.dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1050;
+        }
     </style>
     @php
         $categories = App\Models\Portfoliocategory::where('status', 'Active')->get();
@@ -282,6 +303,7 @@ Request::url()=='https://syslic.xyz/about-us/')
             </div>
         </div>
     </div>
+
 
     <!-- NAVBAR -->
     <nav class="navbar">
@@ -345,11 +367,7 @@ Request::url()=='https://syslic.xyz/about-us/')
                 </a>
 
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item " href="#">Study In Australia</a></li>
-                    <li><a class="dropdown-item " href="#">Study In UK</a></li>
-                    <li><a class="dropdown-item" href="#">Study In USA</a></li>
-                    <li><a class="dropdown-item" href="#">Study In Nepal</a></li>
-                    <li><a class="dropdown-item" href="#">Study In Korea</a></li>
+                    <li><a class="dropdown-item " href="{{ url('blogs') }}">Blog</a></li>
                 </ul>
             </div>
             <!-- Scolarships -->
@@ -368,9 +386,9 @@ Request::url()=='https://syslic.xyz/about-us/')
                 </ul>
             </div>
 
-            <a class="mobile-none" href="{{ url('/') }}">Contact</a>
+            <a class="mobile-none" href="{{ url('/contact-us') }}">Contact</a>
 
-            <a href="{{ $basicinfo->ecommerweb }}" class="btn" style="padding:10px 20px">Register Now</a>
+            <a href="{{ url('/contact-us') }}" class="btn" style="padding:10px 20px">Register Now</a>
         </div>
     </nav>
     <!-- overlay -->
