@@ -42,6 +42,7 @@
     @php
         $pcslider = App\Models\Slider::where('id', 2)->first();
         $mslider = App\Models\Slider::where('id', 1)->first();
+        $destinations = App\Models\Aboutinfo::where('status', 'Active')->latest()->get()->pluck('about_image');
     @endphp
 
     <section class="" style="background:#080f3d">
@@ -221,33 +222,12 @@
                     Pick a destination below and learn everything you need to make an informed decision.</p>
             </div>
             <div class="owl-carousel certificate-slider">
-                <div class="item text-center">
-                    <img src="{{ asset('public/study.png') }}" alt="">
-                </div>
-                <div class="item text-center">
-                    <img src="{{ asset('public/study.png') }}" alt="">
-                </div>
-                <div class="item text-center">
-                    <img src="{{ asset('public/study.png') }}" alt="">
-                </div>
-                <div class="item text-center">
-                    <img src="{{ asset('public/study.png') }}" alt="">
-                </div>
-                <div class="item text-center">
-                    <img src="{{ asset('public/study.png') }}" alt="">
-                </div>
-                <div class="item text-center">
-                    <img src="{{ asset('public/study.png') }}" alt="">
-                </div>
-                <div class="item text-center">
-                    <img src="{{ asset('public/study.png') }}" alt="">
-                </div>
-                <div class="item text-center">
-                    <img src="{{ asset('public/study.png') }}" alt="">
-                </div>
-                <div class="item text-center">
-                    <img src="{{ asset('public/study.png') }}" alt="">
-                </div>
+                @foreach ($destinations as $item)
+                    <a href="" class="item text-center">
+                        <img src="{{ asset($item) }}" alt="">
+                    </a>
+                @endforeach
+                
             </div>
             <a href="{{ url('contact-us') }}" style="padding:13px 23px;box-shadow:none;text-transform: capitalize;"
                 class="btn my-4">Book a FREE Consultation</a>

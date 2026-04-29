@@ -259,6 +259,7 @@ Request::url()=='https://syslic.xyz/about-us/')
     </style>
     @php
         $categories = App\Models\Portfoliocategory::where('status', 'Active')->get();
+        $destination = App\Models\Aboutinfo::where('status', 'Active')->select('id', 'about_title')->get();
     @endphp
 
     <!-- TOP NOTIFICATION BAR -->
@@ -316,11 +317,9 @@ Request::url()=='https://syslic.xyz/about-us/')
                 </a>
 
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item " href="#">Study In Australia</a></li>
-                    <li><a class="dropdown-item " href="#">Study In UK</a></li>
-                    <li><a class="dropdown-item" href="#">Study In USA</a></li>
-                    <li><a class="dropdown-item" href="#">Study In Nepal</a></li>
-                    <li><a class="dropdown-item" href="#">Study In Korea</a></li>
+                    @foreach ($destination as $dest)
+                        <li><a class="dropdown-item " href="">{{ $dest->about_title }}</a></li>
+                    @endforeach
                 </ul>
             </div>
             <!-- Our Services -->
