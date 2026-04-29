@@ -26,6 +26,7 @@ Route::get('blogs', [ListdetailController::class, 'blogs']);
 Route::get('blog/category/{slug}', [ListdetailController::class, 'categoryblog']);
 Route::get('blog/{slug}', [ListdetailController::class, 'blogdetails']);
 Route::get('scholarship/{slug}', [ListdetailController::class, 'scholarship']);
+Route::get('awards-and-accolades', [ListdetailController::class, 'awards_accolades']);
 Route::get('contact-us', [ListdetailController::class, 'contact']);
 Route::post('contact-post', [ListdetailController::class, 'contact_post']);
 Route::get('concern/{slug}', [ListdetailController::class, 'concernindexview']);

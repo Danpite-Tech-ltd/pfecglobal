@@ -326,7 +326,7 @@ Request::url()=='https://syslic.xyz/about-us/')
                 </a>
 
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item " href="#">Awards and Achievements</a></li>
+                    <li><a class="dropdown-item " href="{{ url('awards-and-accolades') }}">Awards and Achievements</a></li>
                     <li><a class="dropdown-item " href="#">Our Leadership Team</a></li>
                     <li><a class="dropdown-item" href="#">Testimonials</a></li>
                 </ul>
